@@ -4720,22 +4720,4 @@ class PlayState extends MusicBeatState
 	}
 
 	var curLight:Int = 0;
-
-	var DIRECTIONS:Array<String> = ["LEFT", "DOWN", "UP", "RIGHT"];
-	var CAMERA_CONSTANT:Float = 10;
-
-	public function sing(character:Character, direction:Int, ?isAlt:Bool = false)
-	{
-		var canAlt = character.animation.getByName('sing' + DIRECTIONS[direction] + "-alt") != null;
-		var alt:String = (isAlt && canAlt ? "-alt" : "");
-
-		if (!character.specialAnim)
-		{
-			character.holdTimer = 0;
-			character.playAnim('sing' + DIRECTIONS[direction] + alt, true);
-		}
-
-		if (whosFocused == character)
-			moveCamera(direction);
-	}
 }

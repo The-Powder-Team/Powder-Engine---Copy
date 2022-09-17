@@ -17,12 +17,11 @@ import Song.SwagSong;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
-import flixel.addons.ui.FlxInputText;
+import ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
 import flixel.addons.ui.FlxUICheckBox;
 import flixel.addons.ui.FlxUIDropDownMenu;
-import flixel.addons.ui.FlxUIInputText;
 import flixel.addons.ui.FlxUINumericStepper;
 import flixel.addons.ui.FlxUITabMenu;
 import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
@@ -576,7 +575,7 @@ class ChartingState extends MusicBeatState
 
 	public var chartEvents:Array<Song.Event> = [];
 
-	public var Typeables:Array<FlxUIInputText> = [];
+	public var Typeables:Array<InputTextFix> = [];
 
 	function addEventsUI()
 	{
@@ -594,11 +593,11 @@ class ChartingState extends MusicBeatState
 	
 			var listLabel = new FlxText(10, 5, 'List of Events');
 			var nameLabel = new FlxText(150, 5, 'Event Name');
-			var eventName = new FlxUIInputText(150,20,80,"");
+			var eventName = new InputTextFix(150,20,80,"");
 			var typeLabel = new FlxText(10, 45, 'Type of Event');
 			var eventType = new FlxUIDropDownMenu(10,60,FlxUIDropDownMenu.makeStrIdLabelArray(["BPM Change", "Scroll Speed Change"], true));
 			var valueLabel = new FlxText(150, 45, 'Event Value');
-			var eventValue = new FlxUIInputText(150,60,80,"");
+			var eventValue = new InputTextFix(150,60,80,"");
 			var eventSave = new FlxButton(10,155,"Save Event", function() {
 				var pog:Song.Event = new Song.Event(currentSelectedEventName,currentEventPosition,HelperFunctions.truncateFloat(Std.parseFloat(savedValue), 3),savedType);
 	
@@ -669,7 +668,7 @@ class ChartingState extends MusicBeatState
 				trace('end');
 			});
 			var posLabel = new FlxText(150, 85, 'Event Position');
-			var eventPos = new FlxUIInputText(150,100,80,"");
+			var eventPos = new InputTextFix(150,100,80,"");
 			var eventAdd = new FlxButton(95,155,"Add Event", function() {
 
 				var pog:Song.Event = new Song.Event("New Event " + HelperFunctions.truncateFloat(curDecimalBeat, 3),HelperFunctions.truncateFloat(curDecimalBeat, 3),_song.bpm,"BPM Change");
@@ -995,7 +994,7 @@ class ChartingState extends MusicBeatState
 
 	function addSongUI():Void
 	{
-		var UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
+		var UI_songTitle = new InputTextFix(10, 10, 70, _song.song, 8);
 		typingShit = UI_songTitle;
 
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
