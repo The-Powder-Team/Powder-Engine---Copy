@@ -393,7 +393,7 @@ class ChartingState extends MusicBeatState
 
 		add(sectionRenderes);
 
-		// fuckin stupid ass bitch ass fucking waveform
+		// fckin stupid ass bitch ass fcking waveform
 		/*if (PlayState.isSM)
 		{
 			waveform = new Waveform(0,0,PlayState.pathToSm + "/" + PlayState.sm.header.MUSIC,height);
@@ -1547,7 +1547,7 @@ class ChartingState extends MusicBeatState
 					_song.bpm = nums.value;
 
 					if (_song.eventObjects[0].type != "BPM Change")
-						Application.current.window.alert("i'm crying, first event isn't a bpm change. fuck you");
+						Application.current.window.alert("This isn't a BPM change XD");
 					else
 						_song.eventObjects[0].value = nums.value;
 				case 'note_susLength':
